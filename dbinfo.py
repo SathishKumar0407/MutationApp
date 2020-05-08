@@ -25,15 +25,14 @@ class ConnectDatabase:
             response_final = requests.get(operation_url)
             #Response from DB
             #print('response_final', response_final.json())
-            if response_final.status_code == 200:
+            if (response_final.status_code == 200):
                 resp_json = response_final.json()
                 data = resp_json['data']
                 error = resp_json['error']
+
                 if (error != ''):
-                    #get the error
-                    #analysis.error = resp_json.error
                     analysis = 'INVALID_QUERY'
-                elif (data[0]['CNT'] > 0):
+                elif (int(data[0]['CNT']) > 0):
                     analysis = 'VALID_QUERY'
                 else:
                     analysis = 'NO_DATA'
