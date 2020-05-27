@@ -1,7 +1,7 @@
 #pylint: disable=missing-docstring
 import json
 import re
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response
 from queryparser import ParseQuery
 from querytuning import TuneQuery
 from querycache import QueryCache
@@ -16,6 +16,10 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def main():
     return "ADAT - Mutation Model"
+
+@app.route('/pong', methods=['GET'])
+def pong():
+    return Response(status=200)
 
 def constructresp(status_code, sub_code, message, input, action):
     response = jsonify({

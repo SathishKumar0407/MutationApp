@@ -100,7 +100,8 @@ def checkdataavailablity(dfconditions):
             #using packages to connect the db and get the data
             #qryrslt = vdatareturnedqryobj.executequery()
             #vdatareturnedqryrslt = checkqueryresult(qryrslt)
-
+            
+            #print('vdatareturnedqryrslt: ',vdatareturnedqryrslt)
             vdatareturned = 'N'
             if (vdatareturnedqryrslt == 'VALID_QUERY'):
                 vdatareturned = 'Y'
@@ -277,7 +278,7 @@ class TuneQuery(object):
             adatquery = fnl_out_json['query'].strip() + ' ' + self.fltordgrpstmt
             fnl_out_json['query'] = adatquery.strip()
             fnl_out_json['message'] = 'SUCCESS'
-        
+
         #Create ADAT Query with the conditions individually returning values
         #adatquery = constructtunedquery(dfconditions)
 
@@ -286,7 +287,7 @@ class TuneQuery(object):
         #fnl_out_json = processtunedquery(adatquery,self.fltordgrpstmt)
 
         #to print the final output
-        print (fnl_out_json)
+        #print (fnl_out_json)
 
         return(fnl_out_json)
 ##########################TuneQuery Class - Ends here###########################
